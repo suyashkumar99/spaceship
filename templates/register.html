@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a cleaner mobile look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Registration Card -->
+    <div class="w-full max-w-sm bg-white rounded-xl shadow-2xl p-6 md:p-8">
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-6 text-center">
+            Sign Up
+        </h1>
+
+        <!-- Error Message Display -->
+        {% if error %}
+        <div class="p-3 mb-4 text-sm text-red-800 bg-red-100 rounded-lg" role="alert">
+            <span class="font-medium">{{ error }}</span>
+        </div>
+        {% endif %}
+
+        <!-- Registration Form -->
+        <form method="POST" action="/register" class="space-y-5">
+            <div>
+                <label for="username" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
+                <input type="text" id="username" name="username" required 
+                       class="w-full p-3 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 shadow-sm"
+                       placeholder="Choose a unique username">
+            </div>
+
+            <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email Address</label>
+                <input type="email" id="email" name="email" required 
+                       class="w-full p-3 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 shadow-sm"
+                       placeholder="you@example.com">
+            </div>
+
+            <div>
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                <input type="password" id="password" name="password" required 
+                       class="w-full p-3 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500 shadow-sm"
+                       placeholder="••••••••">
+            </div>
+            
+            <button type="submit" 
+                    class="w-full text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-lg px-5 py-3 text-center transition duration-150 shadow-md hover:shadow-lg">
+                Create Account
+            </button>
+        </form>
+
+        <p class="text-sm font-light text-gray-500 mt-6 text-center">
+            Already have an account? 
+            <a href="#" class="font-medium text-sky-600 hover:underline">Log in here</a>
+        </p>
+    </div>
+
+</body>
+</html>
